@@ -252,3 +252,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/node,terraform,macos,linux,windows
+
+# build directory
+build
