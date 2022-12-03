@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  neo4j:
+    image: 'neo4j:5.2.0-community'
+    ports:
+      - ${NEO4J_HTTP_PORT}:${NEO4J_HTTP_PORT}
+      - ${NEO4J_BOLT_PORT}:${NEO4J_BOLT_PORT}
+    volumes:
+      - ./neo4j-data:/data
+    environment:
+      - NEO4J_AUTH=none
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://neo4j:${NEO4J_HTTP_PORT}']
+      interval: 5s
+      timeout: 5s
+      retries: 10
